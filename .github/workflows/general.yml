@@ -2,11 +2,7 @@ name: Rust
 
 on:
   push:
-    paths-ignore:
-      - ".cargo/**"
   pull_request:
-    paths-ignore:
-      - ".cargo/**"
     branches:
       - main
 
@@ -21,15 +17,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install mold as default linker
+        uses: rui314/setup-mold@v1
+
       - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
         with:
           profile: minimal
           toolchain: stable
           override: true
-
-      - name: Install mold as default linker
-        uses: rui314/setup-mold@v1
 
       - name: Run cargo test
         uses: actions-rs/cargo@v1
@@ -58,15 +54,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install mold as default linker
+        uses: rui314/setup-mold@v1
+
       - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
           override: true
           components: clippy
-
-      - name: Install mold as default linker
-        uses: rui314/setup-mold@v1
 
       - name: Run clippy
         uses: actions-rs/clippy-check@v1
@@ -80,6 +76,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Install mold as default linker
+        uses: rui314/setup-mold@v1
 
       - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
