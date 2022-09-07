@@ -10,7 +10,6 @@ use tower_http::cors::CorsLayer;
 
 #[tokio::main]
 async fn main() {
-
     // build our application with a single route
     let app = Router::new().route("/api", get(json)).layer(
         CorsLayer::new()
