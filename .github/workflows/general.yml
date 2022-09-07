@@ -10,6 +10,9 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
+      - name: Install mold as default linker
+        uses: rui314/setup-mold@v1
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -19,9 +22,6 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
-
-      - name: Install mold as default linker
-        uses: rui314/setup-mold@v1
 
       - name: Run cargo test
         uses: actions-rs/cargo@v1
@@ -47,6 +47,9 @@ jobs:
     name: Clippy
     runs-on: ubuntu-latest
     steps:
+      - name: Install mold as default linker
+        uses: rui314/setup-mold@v1
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -56,9 +59,6 @@ jobs:
           toolchain: stable
           override: true
           components: clippy
-
-      - name: Install mold as default linker
-        uses: rui314/setup-mold@v1
 
       - name: Run clippy
         uses: actions-rs/clippy-check@v1
