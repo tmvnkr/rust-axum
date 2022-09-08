@@ -1,16 +1,31 @@
 [package]
-name = "rust-axum"
+name = "backend"
 version = "0.1.0"
+authors = ["Tim Vaneker <timvaneker@outlook.com>"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "backend"
 
 [dependencies]
-axum = {version = "0.5", features = ["headers"]}
+axum = { version = "0.6.0-rc.1", features = ["headers"] }
+hyper = "0.14"
 tokio = { version = "1.0", features = ["full"] }
 serde = "1.0"
 serde_json = "1.0"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
-sqlx = { version = "0.6" , features = ["runtime-tokio-rustls", "json", "postgres"] }
+sqlx = { version = "0.6", features = [
+    "runtime-tokio-rustls",
+    "json",
+    "postgres",
+] }
 tower-http = { version = "0.3", features = ["trace", "cors"] }
+
+[dev-dependencies]
+reqwest = "0.11"

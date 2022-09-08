@@ -1,6 +1,10 @@
+# Rust Axum Zero to Production
+
+This is my attempt to follow along the zero2prod book and implementing it with the Axum framework instead of the Actix framework
+
 ## Linker
 
-For this project mold is used as the linker
+For this project mold is used as the linker, see repo for guide.
 
 ## Inner development loop
 
@@ -73,3 +77,19 @@ rustfmt should be installed by default by rustup
 #### run
 
 `cargo audit`
+
+## Debugging tools
+
+### Cargo watch
+
+#### install
+
+`cargo install cargo-expand`
+
+cargo-expand needs the nightly rust toolchain to work:
+`rustup toolchain install nightly --allow-downgrade`
+
+in order to use the nightly toolchain ONLY for the cargo-expand command use:
+`cargo +nightly expand`
+
+PAGE 37
