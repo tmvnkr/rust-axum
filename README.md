@@ -16,7 +16,7 @@ For this project mold is used as the linker, see repo for guide.
 
 #### run
 
-`cargo watch -x chekc -x test -x run`
+`cargo watch -x check -x test -x run`
 
 ## Continuous Integration
 
@@ -92,4 +92,3 @@ cargo-expand needs the nightly rust toolchain to work:
 in order to use the nightly toolchain ONLY for the cargo-expand command use:
 `cargo +nightly expand`
 
-PAGE 37
